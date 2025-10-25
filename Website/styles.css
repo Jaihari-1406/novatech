@@ -1,0 +1,304 @@
+/* Professional cool theme */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;transition:background .25s ease,color .2s ease}
+.container{max-width:980px;margin:0 auto;padding:0 20px}
+
+:root{
+  --bg: #f7fafc; /* soft neutral background */
+  --surface: #ffffff; /* card surfaces */
+  --muted: #6b7280; /* neutral muted text */
+  --accent-start: #2563eb; /* desaturated professional blue */
+  --accent-end: #1d4ed8;
+  /* single accent for the left column */
+  --accent-column: #1f6feb;
+  --text: #0f172a; /* dark text */
+  --text-rgb: 15,23,42;
+}
+.theme-light{
+  --bg: #f7fafc;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --accent-start: #2563eb;
+  --accent-end: #1d4ed8;
+  --accent-column: #1f6feb;
+  --card-overlay: rgba(16,24,40,0.02);
+  --text: #0f172a;
+  --text-rgb: 15,23,42;
+  --logo-contrast: #04283a;
+}
+
+/* Dark theme tokens */
+.theme-dark{
+  --bg: #071022; /* deep navy */
+  --surface: #0b1622; /* card surface */
+  --muted: #9aa4b2; /* lighter muted text */
+  --accent-start: #06b6d4; /* teal-cyan accent */
+  --accent-end: #0891b2;
+  --accent-column: #06a0b0;
+  --card-overlay: rgba(2,6,12,0.28);
+  --text: #e6f6fb; /* light text */
+  --text-rgb: 230,246,251;
+  --logo-contrast: #e6f6fb;
+}
+
+/* Themed icons: use accent color for emphasis but fall back to text color for high contrast */
+.themed-icon{color:var(--accent-start)}
+.theme-dark .themed-icon{color:var(--accent-end)}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid rgba(15,23,42,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.logo{display:inline-flex;align-items:center;color:var(--text);text-decoration:none}
+.logo svg{border-radius:6px}
+.logo-text{margin-left:10px;font-family:"Poppins",Inter,system-ui;font-weight:600;color:var(--text)}
+
+/* Logo mark inherits accent color */
+.logo-mark{color:var(--accent-start)}
+.logo-mark rect{fill:currentColor}
+
+.nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:1.15rem;padding:0;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+.nav-toggle svg{display:block}
+.nav-toggle svg path{stroke:currentColor}
+.nav-toggle:hover{color:var(--accent-start);background:rgba(31,111,235,0.06)}
+.nav-toggle:focus-visible{outline:2px solid rgba(var(--text-rgb),0.12);outline-offset:3px}
+.main-nav ul{list-style:none;display:flex;gap:14px;margin:0;padding:0}
+.main-nav a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:8px;transition:all .14s ease}
+.main-nav a:hover,.main-nav a:focus{background:rgba(31,111,235,0.06);transform:none}
+
+.hero{padding:56px 0 28px;color:var(--text)}
+.hero .container{display:flex;flex-direction:column;gap:12px}
+.hero h1{margin:0;font-size:2rem;line-height:1.05;max-width:860px;font-weight:700}
+.hero .lead{opacity:.95;max-width:720px;color:rgba(var(--text-rgb),0.85)}
+.cta-row{margin-top:14px}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:#fff;font-weight:600;border:0;transition:transform .14s ease,box-shadow .14s ease,opacity .12s ease}
+.btn.primary{background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:#fff}
+.btn.secondary{background:transparent;color:rgba(var(--text-rgb),0.8);border:1px solid rgba(15,23,42,0.06)}
+.btn.small{padding:6px 10px;font-size:.95rem}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(var(--text-rgb),0.06)}
+.btn:active{transform:translateY(-1px)}
+.btn:focus-visible{outline:3px solid rgba(var(--text-rgb),0.12);outline-offset:4px}
+
+section{padding:32px 0}
+h2{margin-top:0;color:var(--text)}
+
+/* Cards */
+.services .service{background:var(--surface);border-radius:10px;padding:18px;margin-bottom:12px;box-shadow:0 6px 22px rgba(15,23,42,0.06);color:var(--text);transition:transform .14s ease,box-shadow .14s ease}
+.services .service:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(15,23,42,0.08)}
+.service h3{margin-top:0}
+
+/* Forms */
+.contact-form{max-width:720px;background:var(--surface);padding:18px;border-radius:10px}
+.form-row{display:flex;flex-direction:column;margin-bottom:12px}
+.form-row label{margin-bottom:6px;font-weight:600;color:var(--text)}
+.form-row input,.form-row textarea{padding:10px;border:1px solid rgba(15,23,42,0.06);border-radius:8px;background:var(--surface);color:var(--text)}
+
+/* Improve form field contrast and focus for both themes */
+.form-row input::placeholder, .form-row textarea::placeholder { color: rgba(var(--text-rgb),0.5); }
+.form-row input, .form-row textarea { border:1px solid rgba(var(--text-rgb),0.08); }
+.form-row input:focus, .form-row textarea:focus { outline:none; box-shadow:0 8px 20px rgba(var(--text-rgb),0.06); border-color: rgba(var(--text-rgb),0.2); }
+.theme-dark .form-row input, .theme-dark .form-row textarea { background: var(--surface); color: var(--text); border:1px solid rgba(255,255,255,0.06); }
+.theme-dark .form-row input::placeholder, .theme-dark .form-row textarea::placeholder { color: rgba(230,246,251,0.4); }
+.contact-form{max-width:720px;background:var(--surface);padding:20px;border-radius:10px;box-shadow:0 8px 28px rgba(15,23,42,0.04)}
+.contact label{color:var(--text);font-weight:600}
+.about h1, .contact h1{color:var(--text);font-weight:700;line-height:1.12;margin-bottom:0.5rem}
+.about h2, .contact h2{color:var(--text);font-weight:600;margin-top:1.1rem}
+.about p, .about li, .contact p, .contact li{color:rgba(var(--text-rgb),0.95);line-height:1.65;font-weight:400}
+
+/* Strong consistency for about/contact headings: use a higher-specificity selector without !important */
+.section.about.container > h1,
+.section.about.container > h2,
+.section.contact.container > h1,
+.section.contact.container > h2 {
+  color: var(--text);
+  opacity: 1;
+  text-shadow: none;
+}
+.form-actions{display:flex;gap:10px;align-items:center}
+.form-status{margin-top:10px;color:#9fe7c9}
+
+/* Footer */
+.site-footer{background:transparent;color:rgba(var(--text-rgb),0.72);padding:28px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+
+.open-pages /* removed: open-pages UI removed from header */
+
+.theme-toggle{margin-left:12px}
+.theme-toggle .btn{background:transparent;border:1px solid rgba(255,255,255,0.03)}
+
+.header-ctas{display:none} /* header CTAs removed from header partial */
+
+.nav-svg{vertical-align:middle;margin-right:8px;filter:drop-shadow(0 1px 0 rgba(0,0,0,0.12));fill:currentColor}
+
+/* Reveal animations */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity 520ms cubic-bezier(.2,.8,.2,1),transform 520ms cubic-bezier(.2,.8,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .nav-toggle{display:inline-block}
+  .hero h1{font-size:1.6rem}
+  /* ensure hamburger is visible on light theme */
+  .nav-toggle{color:var(--text)}
+}
+
+/* Mobile side menu: floating Other button and side panel */
+.mobile-other{display:none;position:fixed;right:14px;bottom:18px;z-index:260;padding:10px 12px;border-radius:10px;background:var(--accent-start);color:#fff;border:0;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+.mobile-side{position:fixed;right:-320px;top:0;width:300px;height:100%;background:var(--surface);box-shadow:-8px 0 30px rgba(2,8,20,0.4);transition:right 280ms ease;z-index:255}
+.mobile-side.open{right:0}
+.mobile-side-inner{padding:18px}
+.mobile-side-close{background:transparent;border:0;font-size:1.2rem;padding:6px;margin-left:auto;display:block}
+.mobile-side-nav ul{list-style:none;padding:0;margin:12px 0}
+.mobile-side-nav a{display:block;padding:10px;border-radius:8px;color:var(--text);text-decoration:none}
+.mobile-side-nav a:hover{background:rgba(var(--text-rgb),0.04)}
+
+@media(max-width:900px){
+  .mobile-other{display:inline-block}
+  .main-nav{display:none}
+}
+
+/* Mobile CTAs removed from header; nav-ctas stylesheet cleaned up */
+
+/* Utility */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* small polish */
+a{color:inherit}
+.svc-icon{display:inline-block;margin-right:10px;font-size:1.05rem;animation:floaty 5s ease-in-out infinite}
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+/* Page toggle (Contact / Services) */
+.page-toggle{display:inline-flex;border-radius:10px;background:var(--surface);padding:4px;border:1px solid rgba(255,255,255,0.04);gap:6px;margin-bottom:18px}
+.seg-btn{background:transparent;border:0;padding:8px 12px;border-radius:8px;color:rgba(var(--text-rgb),0.9);cursor:pointer;font-weight:600}
+.seg-btn.active{background:linear-gradient(90deg,var(--accent-start),var(--accent-end));color:#042b34}
+.seg-btn:focus{outline:2px solid rgba(var(--text-rgb),0.12);outline-offset:2px}
+
+/* accessibility: visible focus ring for keyboard users */
+:focus:not(:focus-visible){outline:none}
+:focus-visible{outline:3px solid rgba(var(--text-rgb),0.14);outline-offset:3px;border-radius:6px}
+
+/* Job & achievement icons */
+.job-icon, .achievement-icon{display:inline-block;width:20px;height:20px;margin-right:10px;vertical-align:middle}
+.job .btn{margin-top:10px}
+
+/* Jobs & Achievements grids */
+.jobs .grid, .achievements .grid{display:grid;gap:18px;margin-top:14px}
+.grid-3{grid-template-columns:1fr;}
+@media(min-width:720px){
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+}
+@media(min-width:900px){
+  .jobs .grid, .achievements .grid{gap:24px}
+  .job, .achievement{padding:22px}
+}
+.job, .achievement{background:var(--surface);padding:18px 18px 18px 36px;border-radius:10px;box-shadow:0 8px 28px rgba(15,23,42,0.04);margin:0;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.job h2, .achievement h2{margin:0 0 12px}
+.job h3, .achievement h3{margin-top:0}
+
+/* Left accent column inside each job/achievement card */
+.job::before, .achievement::before{
+  content: '';
+  position: absolute;
+  left: 14px; /* matches inner padding */
+  top: 14px;
+  bottom: 14px;
+  width: 8px;
+  background: var(--accent-column);
+  border-radius:6px;
+  box-shadow:0 6px 18px rgba(31,111,235,0.06);
+}
+
+@media(max-width:520px){
+  .job::before, .achievement::before{left:12px;top:12px;bottom:12px;width:8px}
+  .job, .achievement{padding-left:28px}
+}
+.muted{color:rgba(var(--text-rgb),0.66);font-size:.95rem;margin:6px 0}
+
+/* spacing helpers for jobs & achievements pages */
+.achievements + .cta-row, .achievements .cta-row, .jobs .cta-row { margin-top: 20px; }
+
+/* spacing between Services -> Jobs -> Achievements -> Contact */
+.services{margin-bottom:12px;padding-bottom:6px}
+.jobs{margin-bottom:12px;padding-bottom:6px}
+.achievements{margin-bottom:18px;padding-bottom:6px}
+/* add breathing room above the grids */
+.jobs .grid{margin-top:18px}
+.achievements .grid{margin-top:24px}
+
+/* subtle inset overlay to reduce perceived contrast differences */
+.job::after, .achievement::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--card-overlay, rgba(16,24,40,0.02));
+  pointer-events: none;
+}
+
+/* ensure content sits above overlay */
+.job > *, .achievement > *{ position: relative; z-index: 1 }
+
+/* align CTA button to card bottom when present */
+.job > p:last-child, .achievement > p:last-child{ margin-top: auto }
+@media(min-width:900px){
+  .services{margin-bottom:36px}
+  .jobs{margin-bottom:36px}
+  .achievements{margin-bottom:44px}
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition: none !important;animation: none !important}
+}
+
+/* Services panel (hidden by default) */
+.services-panel{display:none}
+.services-panel[aria-hidden="false"]{display:block}
+
+/* Extra spacing after services to visually separate Contact */
+.services{margin-bottom:36px;padding-bottom:6px}
+@media(min-width:900px){
+  .services{margin-bottom:72px;padding-bottom:12px}
+}
+
+/* Animated mobile menu: smooth open/close and toggle styles */
+@media(max-width:900px){
+  .main-nav{display:block;max-height:0;overflow:hidden;opacity:0;transform:translateY(-8px);transition:max-height 320ms ease,opacity 320ms ease,transform 320ms ease;width:calc(100% - 24px);left:12px;right:auto;z-index:200;padding:12px;background:var(--surface);border:1px solid rgba(var(--text-rgb),0.06);box-shadow:0 10px 30px rgba(var(--text-rgb),0.04);color:var(--text)}
+  .main-nav.open{max-height:680px;opacity:1;transform:translateY(0);overflow:auto}
+  /* Ensure nav links take full width on mobile for easier tapping and stack vertically */
+  .main-nav ul{display:flex;flex-direction:column;gap:8px;margin:0;padding:0}
+  .main-nav a{display:block;padding:12px 14px;color:var(--text);border-radius:8px}
+  .main-nav a:hover,.main-nav a:focus{background:rgba(var(--text-rgb),0.03);color:var(--text);}
+}
+
+/* CTA icon spacing (nav icons only) */
+.nav-ctas svg{margin-right:8px;vertical-align:middle}
+
+/* On very small screens allow CTAs to wrap and reduce spacing */
+@media(max-width:520px){
+  /* header CTAs removed; no mobile styles required */
+}
+
+.nav-toggle.open{color:var(--accent-start);background:linear-gradient(90deg,rgba(11,158,199,0.08),rgba(6,182,212,0.06))}
+
+/* image rules removed per user request */
+
+/* Modal (lightweight, accessible) */
+.site-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:120;pointer-events:none}
+.site-modal[aria-hidden="false"]{pointer-events:auto}
+.site-modal-backdrop{position:fixed;inset:0;background:rgba(2,8,18,0.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;transition:opacity .18s ease}
+.site-modal[aria-hidden="false"] .site-modal-backdrop{opacity:1}
+.site-modal-panel{background:var(--surface);color:var(--text);border-radius:12px;max-width:720px;width:calc(100% - 40px);margin:20px;box-shadow:0 20px 60px rgba(2,8,20,0.6);transform:translateY(12px);opacity:0;transition:transform .22s ease,opacity .22s ease;padding:18px;position:relative}
+.site-modal[aria-hidden="false"] .site-modal-panel{transform:none;opacity:1}
+.site-modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.site-modal-header h3{margin:0;font-size:1.1rem}
+.modal-close{background:transparent;border:0;color:var(--muted);font-size:1.05rem;padding:6px;border-radius:6px}
+.site-modal-body{line-height:1.6;color:rgba(var(--text-rgb),0.95);margin-bottom:12px}
+.site-modal-footer{display:flex;justify-content:flex-end}
+.site-modal-footer .btn{min-width:120px}
+
+@media(max-width:520px){
+  .site-modal-panel{width:100%;height:100%;border-radius:0;padding:16px;display:flex;flex-direction:column}
+  .site-modal-body{overflow:auto}
+  .site-modal-footer{margin-top:auto}
+}
+
+
+

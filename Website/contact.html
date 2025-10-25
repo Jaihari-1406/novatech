@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — NovaTech</title>
+    <meta name="theme-color" content="#07203a">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div data-include="partials/header.html"></div>
+
+    <main>
+      <section class="contact container">
+        <!-- Page toggle: Contact / Services -->
+        <div id="page-toggle" class="page-toggle" role="tablist" aria-label="Switch view">
+          <button class="seg-btn active" data-target="contact" role="tab" aria-selected="true">Contact</button>
+          <button class="seg-btn" data-target="services" role="tab" aria-selected="false">Services</button>
+        </div>
+
+        <div id="contact-panel">
+          <h1 class="reveal">Contact Us</h1>
+          <p class="reveal">We're happy to discuss your project, estimate timelines, or provide a technical audit. Use the form below or email us at <a href="mailto:hello@novatech.example">hello@novatech.example</a>.</p>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row reveal">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div class="form-row">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" />
+            </div>
+            <div class="form-row reveal">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-row form-actions">
+              <button type="submit" class="btn primary">Send Message</button>
+              <button type="reset" class="btn">Reset</button>
+            </div>
+            <p id="form-status" class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+
+  <!-- services placeholder (lazy-loaded) -->
+  <div id="services-panel" class="services-panel" aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <div data-include="partials/footer.html"></div>
+
+    <script src="include.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

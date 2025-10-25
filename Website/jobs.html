@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jobs — NovaTech</title>
+    <meta name="theme-color" content="#07203a">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div data-include="partials/header.html"></div>
+
+    <main>
+      <section class="container reveal">
+        <h1>Careers at NovaTech</h1>
+        <p>We hire engineers, designers, and product people who love building reliable, scalable software. Below are our open roles; click a role to view details and apply.</p>
+
+          <div class="jobs grid grid-3">
+          <article class="job reveal">
+            <h2>Senior Frontend Engineer</h2>
+            <p class="muted">Build modern web applications. Strong React + TypeScript experience.</p>
+            <p class="muted">Remote · Full-time</p>
+            <p><button class="btn" data-modal-title="Senior Frontend Engineer" data-modal-body="Lead frontend development, own core UI components, and mentor teammates." data-modal-mailto="mailto:careers@novatech.example?subject=Application%20-%20Senior%20Frontend%20Engineer">Apply</button></p>
+          </article>
+
+          <article class="job reveal">
+            <h2>Cloud Infrastructure Engineer</h2>
+            <p class="muted">Design and operate scalable cloud infrastructure and CI/CD.</p>
+            <p class="muted">Remote · Full-time</p>
+            <p><button class="btn" data-modal-title="Cloud Infrastructure Engineer" data-modal-body="Build and maintain CI/CD, IaC and scalable systems on cloud platforms." data-modal-mailto="mailto:careers@novatech.example?subject=Application%20-%20Cloud%20Infrastructure%20Engineer">Apply</button></p>
+          </article>
+
+          <article class="job reveal">
+            <h2>Product Designer</h2>
+            <p class="muted">Design user experiences, prototypes, and systems across platforms.</p>
+            <p class="muted">Remote · Contract/Full-time</p>
+            <p><button class="btn" data-modal-title="Product Designer" data-modal-body="Lead product design, prototyping and user research to craft delightful experiences." data-modal-mailto="mailto:careers@novatech.example?subject=Application%20-%20Product%20Designer">Apply</button></p>
+          </article>
+
+        </div>
+
+        <!-- Modal container (injected so includes still work) -->
+        <div id="modal" class="site-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+          <div class="site-modal-backdrop" data-close="true"></div>
+          <div class="site-modal-panel" role="document">
+            <header class="site-modal-header">
+              <h3 id="modal-title">Title</h3>
+              <button class="modal-close" aria-label="Close">✕</button>
+            </header>
+            <div class="site-modal-body" id="modal-body">Content</div>
+            <footer class="site-modal-footer">
+              <a id="modal-apply" class="btn primary" href="#">Apply</a>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-include="partials/footer.html"></div>
+
+    <script src="include.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

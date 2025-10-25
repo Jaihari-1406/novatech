@@ -1,0 +1,75 @@
+<!-- Preview helper: when this partial is opened directly (e.g. /partials/header.html),
+     inject the main stylesheet and script so the fragment renders like the full site.
+     This script will not run when the partial is injected into another page via innerHTML.
+-->
+<script>
+  try{
+    // run only when the partial is opened directly (not when injected via innerHTML)
+    if(typeof window !== 'undefined' && window.location && window.location.pathname && window.location.pathname.indexOf('/partials/header.html') !== -1){
+      // inject stylesheet (relative to partial path)
+      if(!document.querySelector('link[href="../styles.css"]')){
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '../styles.css'; document.head && document.head.appendChild(l);
+      }
+      // ensure the main script is present so interactive bits work in preview
+      if(!document.querySelector('script[src="../script.js"]')){
+        var s = document.createElement('script'); s.src = '../script.js'; s.defer = true; document.head && document.head.appendChild(s);
+      }
+  // apply default theme class for preview (light)
+  document.documentElement && document.documentElement.classList.add('theme-light');
+    }
+  }catch(e){/* ignore when embedded */}
+</script>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <!-- nav-toggle intentionally moved to the right end below to control visual order -->
+
+    <a class="logo" href="index.html">
+      <!-- simple SVG mark -->
+  <svg class="logo-mark" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor" />
+  <path d="M7 13L10 9L14 15L17 11" stroke="var(--logo-contrast, currentColor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="logo-text">NovaTech</span>
+    </a>
+
+  <nav id="main-nav" class="main-nav" aria-label="Main navigation" aria-hidden="true">
+      <ul>
+  <li><a href="index.html" class="nav-link"><svg class="nav-svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-8.5z" fill="currentColor"/></svg> Home</a></li>
+  <li><a href="about.html" class="nav-link"><svg class="nav-svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="M11 11h2v5h-2zM11 7h2v2h-2z" fill="currentColor"/></svg> About Us</a></li>
+  <li><a href="services.html" class="nav-link"><svg class="nav-svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.5l-1.2-2.1 1.7-2.9-2.7-2.7-2.9 1.7-2.1-1.2-3.9 3.9 1.2 2.1-1.7 2.9 2.7 2.7 2.9-1.7 2.1 1.2 3.9-3.9z" fill="currentColor"/></svg> Services</a></li>
+  <li><a href="contact.html" class="nav-link"><svg class="nav-svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V7l-3 2-4-3-8 6v6h18V8z" fill="currentColor"/></svg> Contact Us</a></li>
+  <li><a href="jobs.html" class="nav-link"><svg class="nav-svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="currentColor"/></svg> Jobs</a></li>
+  <li><a href="achievements.html" class="nav-link"><svg class="nav-svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 5.2L20 8l-4 3.2L17 18l-5-2.8L7 18l1-6.8L4 8l5.6-.8L12 2z" fill="currentColor"/></svg> Achievements</a></li>
+      </ul>
+    </nav>
+    
+    <!-- open-pages removed -->
+    
+      <!-- theme toggle -->
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="btn small" aria-pressed="false" aria-label="Toggle theme">🌙</button>
+      </div>
+    
+  <!-- header CTAs removed -->
+  <!-- Mobile side menu trigger (visible only on small screens) -->
+  <button id="mobile-other-btn" class="mobile-other" aria-label="Open menu" aria-expanded="false">Menu</button>
+
+  <!-- Mobile side panel -->
+  <div id="mobile-side" class="mobile-side" aria-hidden="true">
+    <div class="mobile-side-inner">
+      <button id="mobile-side-close" class="mobile-side-close" aria-label="Close menu">✕</button>
+      <nav class="mobile-side-nav" aria-label="Mobile menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="jobs.html">Jobs</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  </div>
+</header>
